@@ -1,6 +1,6 @@
 export default function NavBar() {
   return (
-    <div>
+    <div className="">
       <nav>
         <ul>
           <li></li>
