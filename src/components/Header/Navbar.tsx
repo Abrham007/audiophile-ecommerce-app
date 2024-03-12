@@ -1,16 +1,21 @@
+import { useState } from "react";
+import NavDropdown from "./NavDropdown";
+
 export default function NavBar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  function toggleOpen() {
+    setIsOpen((prevValue) => !prevValue);
+  }
   return (
-    <nav>
-      <button className="w-4 h-4 cursor-pointer border-none outline-none md:hidden">
+    <nav className="lg:hidden">
+      <button
+        onClick={toggleOpen}
+        className="w-4 h-4 cursor-pointer border-none outline-none lg:hidden"
+      >
         <img src="./shared/mobile/hamburger.svg" alt="hamberger icon" />
       </button>
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-      <dialog></dialog>
+      <NavDropdown isOpen={isOpen} setIsOpen={setIsOpen}></NavDropdown>
     </nav>
   );
 }
