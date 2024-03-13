@@ -11,7 +11,7 @@ const config: Config = {
       Orange: "#D87D4A",
       LightOrange: "#FBAF85",
       Black: "#000",
-      LigthBlack: "#101010",
+      LightBlack: "#101010",
       White: "#FFFFFF",
       DarkWhite: "#FAFAFA",
       VeryDarkWhite: "#F1F1F1",
