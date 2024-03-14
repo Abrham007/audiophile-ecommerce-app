@@ -8,7 +8,7 @@ import rightIcon from "../../../public/shared/desktop/icon-arrow-right.svg";
 export default function Navbar() {
   return (
     <div
-      className={`relative z-11 w-full px-6 md:px-10 py-8 md:py-14 bg-White flex flex-col md:flex-row gap-4 md:gap-[10px]  `}
+      className={`relative z-11 w-full max-w-[1110px] mx-auto px-6 md:px-10 lg:px-0 py-8 md:py-14 lg:py-0 bg-White flex flex-col md:flex-row gap-4 md:gap-[10px] lg:gap-[30px]`}
     >
       <div className="relative w-full h-[217px] flex flex-col justify-end">
         <Link
