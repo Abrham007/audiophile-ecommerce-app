@@ -18,12 +18,16 @@ export default function Summary() {
   } = getImageProps({
     ...common,
     src: ImageBestGearTablet,
+    width: 1378,
+    height: 600,
   });
   const {
     props: { srcSet: mobile, ...rest },
   } = getImageProps({
     ...common,
     src: ImageBestGearMobile,
+    width: 654,
+    height: 600,
   });
   return (
     <footer className="max-w-[1110px] mx-auto lg:w-full lg:h-[588px] flex flex-col lg:flex-row-reverse  gap-10 lg:gap-0 items-center  lg:justify-between ">
