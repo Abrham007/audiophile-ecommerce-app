@@ -22,7 +22,16 @@ export default function Button({
       return (
         <button
           {...props}
-          className="px-[30px] py-[15px] bg-White hover:bg-Black text-xs text-Black hover:text-White font-bold border-[1px] border-solid border-Black outline-none"
+          className="px-[30px] py-[15px] bg-transparent hover:bg-Black text-xs text-Black hover:text-White font-bold border-[1px] border-solid border-Black outline-none"
+        >
+          {children}
+        </button>
+      );
+    case "3":
+      return (
+        <button
+          {...props}
+          className="px-[30px] py-[15px] bg-Black hover:bg-transparent text-xs text-White hover:text-Black font-bold border-[1px] border-solid border-Black outline-none"
         >
           {children}
         </button>
