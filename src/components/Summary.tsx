@@ -34,11 +34,11 @@ export default function Summary() {
         <img {...rest} className="w-full h-auto flex-shrink-0" />
       </picture>
 
-      <div className="lg:w-[445px] lg:h-[295px] flex flex-col gap-8">
-        <h2 className="text-xl2 text-Black text-center uppercase tracking-[0.0625rem]">
+      <div className="lg:w-[445px] lg:h-[295px] flex flex-col gap-8 text-center lg:text-left">
+        <h2 className="text-xl2 md:text-xl4 text-Black  uppercase tracking-[0.0625rem]">
           Bringing you the <span className="text-Orange">best</span> audio gear
         </h2>
-        <p className="text-base text-Black text-center opacity-50">
+        <p className="text-base text-Black  opacity-50">
           Located at the heart of New York City, Audiophile is the premier store
           for high end headphones, earphones, speakers, and audio accessories.
           We have a large showroom and luxury demonstration rooms available for
