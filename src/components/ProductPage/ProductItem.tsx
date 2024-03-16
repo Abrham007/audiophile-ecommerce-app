@@ -44,13 +44,13 @@ export default function ProductItem({
   });
   return (
     <li className="flex flex-col lg:flex-row gap-8 items-center md:gap-[52px] lg:gap-0 lg:justify-between">
-      <picture className="lg:self-end lg:-mb-4 ">
+      <picture className="">
         <source media="(min-width: 1020px)" srcSet={desktop} />
         <source media="(min-width: 768px)" srcSet={tablet} />
         <source media="(min-width: 500px)" srcSet={mobile} />
         <img
           {...rest}
-          className="w-full h-[352px] md:h-[352px] lg:w-[540px] lg:h-[560px]"
+          className="w-full h-[352px] md:h-[352px] lg:w-[540px] lg:h-[560px] rounded-lg"
         />
       </picture>
       <div className=" md:w-[572px] lg:w-[445px] flex flex-col gap-6 items-center lg:items-start text-center lg:text-left">
