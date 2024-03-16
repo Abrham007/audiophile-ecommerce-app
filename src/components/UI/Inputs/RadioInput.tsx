@@ -5,7 +5,7 @@ type RadioInputProps = {
 
 export default function RadioInput({ name, label }: RadioInputProps) {
   return (
-    <label className="py-18 pl-4 flex gap-4 hover:cursor-pointer border border-solid border-[#CFCFCF] rounded-lg hover:border-Orange focus:border-Orange">
+    <label className="py-[18px] pl-4 flex gap-4 hover:cursor-pointer border border-solid border-[#CFCFCF] rounded-lg hover:border-Orange focus:border-Orange">
       <input
         name={name}
         type="radio"

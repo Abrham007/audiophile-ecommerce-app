@@ -21,7 +21,7 @@ export default function TextInput({
         name={name}
         placeholder={placeholder}
         type="text"
-        className="py-18 pl-6 hover:cursor-pointer border border-solid border-[#CFCFCF] rounded-lg focus:border-Orange text-sm -tracking-[0.01563rem] font-bold"
+        className="py-[18px] pl-6 hover:cursor-pointer border border-solid border-[#CFCFCF] rounded-lg focus:border-Orange text-sm -tracking-[0.01563rem] font-bold"
       ></input>
     </label>
   );
