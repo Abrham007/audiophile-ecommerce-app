@@ -12,7 +12,7 @@ export default function NavDropdown({ isOpen, setIsOpen }: NavDropdownProps) {
         isOpen ? "block" : "hidden"
       } before:opacity-50 before:fixed before:top-[90px] before:left-0 before:bottom-0 before:right-0 before:bg-Black lg:hidden before:z-9`}
     >
-      <Navbar></Navbar>
+      <Navbar className="w-full px-6 md:px-10 lg:px-0"></Navbar>
     </div>
   );
 }

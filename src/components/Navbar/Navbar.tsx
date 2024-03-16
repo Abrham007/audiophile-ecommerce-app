@@ -5,10 +5,14 @@ import speakerImage from "../../../public/shared/mobile/image-speakers-modal.png
 import earphoneImage from "../../../public/shared/mobile/image-earphones-modal.png";
 import rightIcon from "../../../public/shared/desktop/icon-arrow-right.svg";
 
-export default function Navbar() {
+type NavBarProps = {
+  className?: string;
+};
+
+export default function Navbar({ className }: NavBarProps) {
   return (
     <div
-      className={`relative z-11 w-full max-w-[1110px] mx-auto px-6 md:px-10 lg:px-0 py-8 md:py-14 lg:py-0 bg-White flex flex-col md:flex-row gap-4 md:gap-[10px] lg:gap-[30px]`}
+      className={`relative z-11 w-full max-w-[1110px] mx-auto  py-8 md:py-14 lg:py-0 bg-White flex flex-col md:flex-row gap-4 md:gap-[10px] lg:gap-[30px] ${className}`}
     >
       <div className="relative w-full h-[217px] flex flex-col justify-end">
         <Link
