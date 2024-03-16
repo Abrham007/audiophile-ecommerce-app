@@ -58,7 +58,7 @@ export default function ProductDetailItem({
         {isNew && (
           <p className="text-sm text-Orange uppercase md:-mb-4">NEW PRODUCT</p>
         )}
-        <h2 className="text-xl2 md:text-xl4 text-Black tracking-[0.0625rem]">
+        <h2 className="text-xl2 md:text-xl4 text-Black tracking-[0.0625rem] uppercase">
           {title}
         </h2>
         <p className="text-base text-Black opacity-50">{description}</p>

@@ -88,7 +88,7 @@ export default function ProductDetailGallery() {
     height: 736,
   });
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col md:flex-row gap-5 mx-auto">
       <div className="flex flex-col gap-5">
         <picture>
           <source media="(min-width: 1020px)" srcSet={desktopFirst} />
