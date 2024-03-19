@@ -1,14 +1,14 @@
 import Button from "../UI/Button/Button";
-import SummaryItem from "./SummaryItem";
+import ProductSummary from "../ProductSummary";
 
 export default function CheckoutSummary() {
   return (
     <div className="lg:w-[350px] px-6 py-8 md:p-8 flex flex-col gap-8 bg-White rounded-lg">
       <h2 className="text-lg text-Black uppercase">summary</h2>
       <ul className="flex flex-col gap-6">
-        <SummaryItem title="XX99 MK II"></SummaryItem>
-        <SummaryItem title="XX59"></SummaryItem>
-        <SummaryItem title="YX1"></SummaryItem>
+        <ProductSummary title="XX99 MK II"></ProductSummary>
+        <ProductSummary title="XX59"></ProductSummary>
+        <ProductSummary title="YX1"></ProductSummary>
       </ul>
       <div className="flex flex-col gap-2">
         <p className="flex justify-between">
