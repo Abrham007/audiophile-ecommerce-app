@@ -32,7 +32,11 @@ export default function Modal({
   }
 
   return (
-    <dialog ref={dialog} onClose={handelClose} className={className}>
+    <dialog
+      ref={dialog}
+      onClose={handelClose}
+      className={`${className} backdrop:bg-Black backdrop:opacity-40`}
+    >
       {isOpen && children}
     </dialog>
   );
