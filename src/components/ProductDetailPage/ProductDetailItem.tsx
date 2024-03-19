@@ -68,6 +68,7 @@ export default function ProductDetailItem({
             number={1}
             decrement={() => {}}
             increment={() => {}}
+            className="w-[120px] h-[48px]"
           ></NumberInput>
           <Button $type="1">ADD TO CART</Button>
         </div>
