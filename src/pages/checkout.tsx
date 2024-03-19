@@ -1,5 +1,7 @@
+import Cart from "@/components/Cart/Cart";
 import CheckoutForm from "@/components/CheckoutPage/CheckoutForm";
 import CheckoutSummary from "@/components/CheckoutPage/CheckoutSummary";
+import Header from "@/components/Header/Header";
 import Modal from "@/components/Modal";
 import SuccessMessage from "@/components/SuccessMessage";
 
@@ -17,8 +19,13 @@ export default function Checkout() {
         </section>
       </div>
 
-      <Modal isOpen={true} setIsOpen={() => {}} className="rounded-lg">
+      <Modal isOpen={false} setIsOpen={() => {}} className="rounded-lg">
         <SuccessMessage></SuccessMessage>
+      </Modal>
+
+      <Modal isOpen={true} setIsOpen={() => {}} className="rounded-lg">
+        <Header></Header>
+        <Cart></Cart>
       </Modal>
     </>
   );
