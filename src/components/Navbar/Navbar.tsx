@@ -16,7 +16,7 @@ export default function Navbar({ className }: NavBarProps) {
     >
       <div className="relative w-full h-[217px] flex flex-col justify-end">
         <Link
-          href="/headphone"
+          href="/headphones"
           className="w-full h-[165px] pb-[22px] flex flex-col gap-[17px] justify-end items-center bg-VeryDarkWhite rounded-lg "
         >
           <Image
@@ -35,7 +35,7 @@ export default function Navbar({ className }: NavBarProps) {
       </div>
       <div className="relative w-full h-[217px] flex flex-col justify-end">
         <Link
-          href="/speaker"
+          href="/speakers"
           className="w-full h-[165px] pb-[22px] flex flex-col gap-[17px] justify-end items-center bg-VeryDarkWhite rounded-lg "
         >
           <Image
@@ -54,7 +54,7 @@ export default function Navbar({ className }: NavBarProps) {
       </div>
       <div className="relative w-full h-[217px] flex flex-col justify-end">
         <Link
-          href="./earphone"
+          href="./earphones"
           className="w-full h-[165px] pb-[22px] flex flex-col gap-[17px] justify-end items-center bg-VeryDarkWhite rounded-lg "
         >
           <Image
