@@ -20,11 +20,9 @@ export default function Navbar({ className }: NavBarProps) {
           className="w-full h-[165px] pb-[22px] flex flex-col gap-[17px] justify-end items-center bg-VeryDarkWhite rounded-lg "
         >
           <Image
-            className="absolute top-0 left-[50% - 40px]"
+            className="absolute top-0 left-[50% - 40px] w-[80px] h-auto"
             src={headphoneImage}
             alt="headphone"
-            width={80}
-            height={104}
           ></Image>
           <p className="text-base text-Black text-center uppercase tracking-[0.06694rem] leading-normal font-bold ">
             HEADPHONES
@@ -41,11 +39,9 @@ export default function Navbar({ className }: NavBarProps) {
           className="w-full h-[165px] pb-[22px] flex flex-col gap-[17px] justify-end items-center bg-VeryDarkWhite rounded-lg "
         >
           <Image
-            className="absolute top-0 left-[50% - 42px]"
+            className="absolute top-0 left-[50% - 42px] w-[80px] h-auto"
             src={speakerImage}
             alt="speaker"
-            width={84}
-            height={101}
           ></Image>
           <p className="text-base text-Black text-center uppercase tracking-[0.06694rem] leading-normal font-bold ">
             SPEAKERS
@@ -62,11 +58,9 @@ export default function Navbar({ className }: NavBarProps) {
           className="w-full h-[165px] pb-[22px] flex flex-col gap-[17px] justify-end items-center bg-VeryDarkWhite rounded-lg "
         >
           <Image
-            className="absolute top-0 left-[50% - 50px]"
+            className="absolute top-0 left-[50% - 50px] w-[103px] h-auto"
             src={earphoneImage}
             alt="earphone"
-            width={103}
-            height={104}
           ></Image>
           <p className="text-base text-Black text-center uppercase tracking-[0.06694rem] leading-normal font-bold ">
             EARPHONES

@@ -1,8 +1,6 @@
 import { getImageProps } from "next/image";
 import Button from "../UI/Button/Button";
-import ImageHeadphoneMobile from "../../../public/product-xx99-mark-two-headphones/mobile/image-category-page-preview.jpg";
-import ImageHeadphoneTablet from "../../../public/product-xx99-mark-two-headphones/tablet/image-category-page-preview.jpg";
-import ImageHeadphoneDesktop from "../../../public/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
+import Link from "next/link";
 
 type ProductItemProsp = {
   title: string;
@@ -13,7 +11,8 @@ type ProductItemProsp = {
     tablet: string;
   };
   isNew?: boolean;
-  order: number;
+  slug: string;
+  category: string;
 };
 
 export default function ProductItem({
@@ -21,7 +20,8 @@ export default function ProductItem({
   description,
   imageSrc,
   isNew = false,
-  order,
+  slug,
+  category,
 }: ProductItemProsp) {
   const common = { alt: `A ${title}` };
   const {
@@ -56,7 +56,7 @@ export default function ProductItem({
         <source media="(min-width: 500px)" srcSet={mobile} />
         <img
           {...rest}
-          className="w-full h-[352px] md:h-[352px] lg:w-[540px] lg:h-[560px] rounded-lg"
+          className="w-full h-auto lg:w-[540px] lg:h-auto rounded-lg"
         />
       </picture>
       <div className=" md:w-[572px] lg:w-[445px] flex flex-col gap-6 items-center lg:items-start text-center lg:text-left">
@@ -67,7 +67,9 @@ export default function ProductItem({
         <p className="text-base text-Black opacity-50 md:mt-2 lg:mb-4">
           {description}
         </p>
-        <Button $type="1">See Product</Button>
+        <Link href={`/${category}/${slug}`}>
+          <Button $type="1">See Product</Button>
+        </Link>
       </div>
     </li>
   );

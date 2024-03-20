@@ -1,29 +1,33 @@
-import Image, { StaticImageData, getImageProps } from "next/image";
+import { getImageProps } from "next/image";
 import Button from "../UI/Button/Button";
-import ImageHeadphoneMobile from "../../../public/product-xx99-mark-two-headphones/mobile/image-product.jpg";
-import ImageHeadphoneTablet from "../../../public/product-xx99-mark-two-headphones/tablet/image-product.jpg";
-import ImageHeadphoneDesktop from "../../../public/product-xx99-mark-two-headphones/desktop/image-product.jpg";
 import NumberInput from "../UI/Inputs/NumberInput";
+import { formatter } from "../../util/formatter.js";
 
 type ProductItemProsp = {
   title: string;
   description: string;
-  imgSrc?: StaticImageData;
-  isNew?: boolean;
+  imageSrc: {
+    desktop: string;
+    mobile: string;
+    tablet: string;
+  };
+  isNew: boolean;
+  price: number;
 };
 
 export default function ProductDetailItem({
   title,
   description,
-  imgSrc,
-  isNew = true,
+  imageSrc,
+  isNew,
+  price,
 }: ProductItemProsp) {
   const common = { alt: `A ${title}` };
   const {
     props: { srcSet: desktop },
   } = getImageProps({
     ...common,
-    src: ImageHeadphoneDesktop,
+    src: imageSrc.desktop,
     width: 1080,
     height: 1120,
   });
@@ -31,7 +35,7 @@ export default function ProductDetailItem({
     props: { srcSet: tablet },
   } = getImageProps({
     ...common,
-    src: ImageHeadphoneTablet,
+    src: imageSrc.tablet,
     width: 562,
     height: 960,
   });
@@ -39,7 +43,7 @@ export default function ProductDetailItem({
     props: { srcSet: mobile, ...rest },
   } = getImageProps({
     ...common,
-    src: ImageHeadphoneMobile,
+    src: imageSrc.mobile,
     width: 654,
     height: 654,
   });
@@ -62,14 +66,18 @@ export default function ProductDetailItem({
           {title}
         </h2>
         <p className="text-base text-Black opacity-50">{description}</p>
-        <p className="text-lg text-Black uppercase">$ 2,999</p>
+        <p className="text-lg text-Black uppercase">
+          {formatter.format(price)}
+        </p>
         <div className="flex gap-4 items-center mt-2 md:mt-0 lg:mt-4">
-          <NumberInput
-            number={1}
-            decrement={() => {}}
-            increment={() => {}}
-            className="w-[120px] h-[48px]"
-          ></NumberInput>
+          <div className="w-[120px] h-[48px]">
+            <NumberInput
+              number={1}
+              decrement={() => {}}
+              increment={() => {}}
+            ></NumberInput>
+          </div>
+
           <Button $type="1">ADD TO CART</Button>
         </div>
       </div>
