@@ -1,10 +1,15 @@
 type ProductDetailInfoProps = {
   features: string;
+  includes: {
+    quantity: number;
+    item: string;
+  }[];
 };
 export default function ProductDetailInfo({
   features,
+  includes,
 }: ProductDetailInfoProps) {
-  let featuresList = features.split("\\n\\n");
+  let featuresList = features.split("\n\n");
 
   return (
     <div className="flex flex-col lg:flex-row gap-[88px] lg:gap-[125px]">
@@ -23,34 +28,16 @@ export default function ProductDetailInfo({
           in the box
         </h2>
         <ul className="flex flex-col gap-2">
-          <li className="flex gap-[21px]">
-            <span className="text-base text-Orange font-bold ">2x</span>
-            <span className="text-base text-Black opacity-50">
-              Speaker Unit
-            </span>
-          </li>
-          <li className="flex gap-[21px]">
-            <span className="text-base text-Orange font-bold ">2x</span>
-            <span className="text-base text-Black opacity-50">
-              Speaker Cloth Panel
-            </span>
-          </li>
-          <li className="flex gap-[21px]">
-            <span className="text-base text-Orange font-bold ">1x</span>
-            <span className="text-base text-Black opacity-50">User Manual</span>
-          </li>
-          <li className="flex gap-[21px]">
-            <span className="text-base text-Orange font-bold ">1x</span>
-            <span className="text-base text-Black opacity-50">
-              3.5mm 10m Audio Cable
-            </span>
-          </li>
-          <li className="flex gap-[21px]">
-            <span className="text-base text-Orange font-bold ">1x</span>
-            <span className="text-base text-Black opacity-50">
-              10m Optical Cable
-            </span>
-          </li>
+          {includes.map((item) => (
+            <li className="flex gap-[21px]">
+              <span className="text-base text-Orange font-bold ">
+                {item.quantity}x
+              </span>
+              <span className="text-base text-Black opacity-50">
+                {item.item}
+              </span>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

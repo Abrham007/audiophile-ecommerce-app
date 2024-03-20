@@ -5,14 +5,20 @@ import ImageDesktop from "../../../public/shared/desktop/image-xx99-mark-one-hea
 import Image, { StaticImageData, getImageProps } from "next/image";
 type OthersItemProps = {
   title: string;
+  slug: string;
+  imageSrc: {
+    desktop: string;
+    tablet: string;
+    mobile: string;
+  };
 };
-export default function OthersItem({ title }: OthersItemProps) {
+export default function OthersItem({ title, imageSrc, slug }: OthersItemProps) {
   const common = { alt: `A ${title}` };
   const {
     props: { srcSet: desktop },
   } = getImageProps({
     ...common,
-    src: ImageDesktop,
+    src: imageSrc.desktop,
     width: 1080,
     height: 1120,
   });
@@ -20,7 +26,7 @@ export default function OthersItem({ title }: OthersItemProps) {
     props: { srcSet: tablet },
   } = getImageProps({
     ...common,
-    src: ImageTablet,
+    src: imageSrc.tablet,
     width: 562,
     height: 960,
   });
@@ -28,7 +34,7 @@ export default function OthersItem({ title }: OthersItemProps) {
     props: { srcSet: mobile, ...rest },
   } = getImageProps({
     ...common,
-    src: ImageMobile,
+    src: imageSrc.mobile,
     width: 654,
     height: 654,
   });

@@ -1,23 +1,32 @@
-import Image, { StaticImageData, getImageProps } from "next/image";
-import ImageFirstMobile from "../../../public/product-xx99-mark-two-headphones/mobile/image-gallery-1.jpg";
-import ImageFirstTablet from "../../../public/product-xx99-mark-two-headphones/tablet/image-gallery-1.jpg";
-import ImageFirstDesktop from "../../../public/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg";
+import { getImageProps } from "next/image";
 
-import ImageSecondMobile from "../../../public/product-xx99-mark-two-headphones/mobile/image-gallery-2.jpg";
-import ImageSecondTablet from "../../../public/product-xx99-mark-two-headphones/tablet/image-gallery-2.jpg";
-import ImageSecondDesktop from "../../../public/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg";
+type ProductDetailGaller = {
+  gallery: {
+    first: {
+      desktop: string;
+      tablet: string;
+      mobile: string;
+    };
+    second: {
+      desktop: string;
+      tablet: string;
+      mobile: string;
+    };
+    third: {
+      desktop: string;
+      tablet: string;
+      mobile: string;
+    };
+  };
+};
 
-import ImageThirdMobile from "../../../public/product-xx99-mark-two-headphones/mobile/image-gallery-3.jpg";
-import ImageThirdTablet from "../../../public/product-xx99-mark-two-headphones/tablet/image-gallery-3.jpg";
-import ImageThirdDesktop from "../../../public/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg";
-
-export default function ProductDetailGallery() {
+export default function ProductDetailGallery({ gallery }: ProductDetailGaller) {
   const common = { alt: `` };
   const {
     props: { srcSet: desktopFirst },
   } = getImageProps({
     ...common,
-    src: ImageFirstDesktop,
+    src: gallery.first.desktop,
     width: 445,
     height: 280,
   });
@@ -25,7 +34,7 @@ export default function ProductDetailGallery() {
     props: { srcSet: tabletFirst },
   } = getImageProps({
     ...common,
-    src: ImageFirstTablet,
+    src: gallery.first.tablet,
     width: 554,
     height: 348,
   });
@@ -33,7 +42,7 @@ export default function ProductDetailGallery() {
     props: { srcSet: mobileFirst, ...restFirst },
   } = getImageProps({
     ...common,
-    src: ImageFirstMobile,
+    src: gallery.first.mobile,
     width: 654,
     height: 348,
   });
@@ -42,7 +51,7 @@ export default function ProductDetailGallery() {
     props: { srcSet: desktopSecond },
   } = getImageProps({
     ...common,
-    src: ImageSecondDesktop,
+    src: gallery.second.desktop,
     width: 445,
     height: 280,
   });
@@ -50,7 +59,7 @@ export default function ProductDetailGallery() {
     props: { srcSet: tabletSecond },
   } = getImageProps({
     ...common,
-    src: ImageSecondTablet,
+    src: gallery.second.tablet,
     width: 554,
     height: 348,
   });
@@ -58,7 +67,7 @@ export default function ProductDetailGallery() {
     props: { srcSet: mobileSecond, ...restSecond },
   } = getImageProps({
     ...common,
-    src: ImageSecondMobile,
+    src: gallery.second.mobile,
     width: 654,
     height: 348,
   });
@@ -67,7 +76,7 @@ export default function ProductDetailGallery() {
     props: { srcSet: desktopThird },
   } = getImageProps({
     ...common,
-    src: ImageThirdDesktop,
+    src: gallery.third.desktop,
     width: 635,
     height: 592,
   });
@@ -75,7 +84,7 @@ export default function ProductDetailGallery() {
     props: { srcSet: tabletThird },
   } = getImageProps({
     ...common,
-    src: ImageThirdTablet,
+    src: gallery.third.tablet,
     width: 790,
     height: 736,
   });
@@ -83,7 +92,7 @@ export default function ProductDetailGallery() {
     props: { srcSet: mobileThird, ...restThird },
   } = getImageProps({
     ...common,
-    src: ImageThirdMobile,
+    src: gallery.third.mobile,
     width: 654,
     height: 736,
   });
