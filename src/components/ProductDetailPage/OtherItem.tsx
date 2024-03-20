@@ -1,8 +1,6 @@
 import Button from "../UI/Button/Button";
-import ImageMobile from "../../../public/shared/mobile/image-xx99-mark-one-headphones.jpg";
-import ImageTablet from "../../../public/shared/tablet/image-xx99-mark-one-headphones.jpg";
-import ImageDesktop from "../../../public/shared/desktop/image-xx99-mark-one-headphones.jpg";
-import Image, { StaticImageData, getImageProps } from "next/image";
+import { getImageProps } from "next/image";
+import Link from "next/link";
 type OthersItemProps = {
   title: string;
   slug: string;
@@ -38,6 +36,10 @@ export default function OthersItem({ title, imageSrc, slug }: OthersItemProps) {
     width: 654,
     height: 654,
   });
+
+  let slugList = slug.split("-");
+  let productCategory = slugList[slugList.length - 1];
+
   return (
     <li className="flex flex-col gap-8 md:gap-10 items-center">
       <picture>
@@ -51,7 +53,9 @@ export default function OthersItem({ title, imageSrc, slug }: OthersItemProps) {
       </picture>
       <div className="flex flex-col gap-8 items-center">
         <h3 className="text-xl">{title}</h3>
-        <Button $type="1">See Product</Button>
+        <Link href={`/${productCategory}/${slug}`}>
+          <Button $type="1">See Product</Button>
+        </Link>
       </div>
     </li>
   );
