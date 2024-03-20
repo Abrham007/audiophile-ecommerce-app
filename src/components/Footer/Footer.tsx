@@ -8,6 +8,7 @@ export default function Footer() {
   return (
     <footer className=" bg-Black md:px-10">
       <div className="relative max-w-[1110px] h-[645px] md:h-[400px] lg:mx-auto flex flex-col gap-12 md:gap-8 lg:gap-9 items-center justify-center md:items-start px-6 md:px-10 lg:px-0">
+        <hr className="w-[101px] h-1 bg-Orange absolute top-0 left-[137px] md:left-[39px] lg:left-0" />
         <div className="lg:w-full flex flex-col lg:flex-row gap-12 md:gap-8 items-center md:items-start lg:justify-between">
           <Image
             src={logoIcon}
