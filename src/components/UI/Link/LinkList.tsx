@@ -14,7 +14,7 @@ export default function LinkList({ className }: LinkListProps) {
       </li>
       <li>
         <a
-          href="/headphone"
+          href="/headphones"
           className="text-xs text-White hover:text-Orange tracking-[0.125rem] uppercase"
         >
           HEADPHONES
@@ -22,7 +22,7 @@ export default function LinkList({ className }: LinkListProps) {
       </li>
       <li>
         <a
-          href="/speaker"
+          href="/speakers"
           className="text-xs text-White hover:text-Orange tracking-[0.125rem] uppercase"
         >
           SPEAKERS
@@ -30,7 +30,7 @@ export default function LinkList({ className }: LinkListProps) {
       </li>
       <li>
         <a
-          href="/earphone"
+          href="/earphones"
           className="text-xs text-White hover:text-Orange tracking-[0.125rem] uppercase"
         >
           EARPHONES
