@@ -1,4 +1,5 @@
 import Button from "@/components/UI/Button/Button";
+import Link from "next/link";
 export default function HomeHeader() {
   return (
     <header className="h-[600px] md:h-[730px] flex justify-center items-center bg-Black bg-[url('../../public/home/mobile/image-header.jpg')] md:bg-[url('../../public/home/tablet/image-header.jpg')] lg:bg-[url('../../public/home/desktop/image-hero.jpg')] bg-bottom md:bg-center bg-cover bg-no-repeat">
@@ -15,7 +16,9 @@ export default function HomeHeader() {
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </p>
-        <Button $type="1">See Product</Button>
+        <Link href="/headphones/xx99-mark-two-headphones">
+          <Button $type="1">See Product</Button>
+        </Link>
       </div>
     </header>
   );
