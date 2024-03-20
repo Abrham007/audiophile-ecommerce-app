@@ -25,7 +25,9 @@ export default function Checkout() {
 
       <Modal isOpen={true} setIsOpen={() => {}} className="rounded-lg">
         <Header></Header>
-        <Cart></Cart>
+        <div className="w-full max-w-[1110px] mx-auto fixed  top-0 left-0 right-0">
+          <Cart></Cart>
+        </div>
       </Modal>
     </>
   );
