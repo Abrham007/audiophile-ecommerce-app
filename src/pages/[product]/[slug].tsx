@@ -6,6 +6,7 @@ import ProductDetailOthers from "@/components/ProductDetailPage/ProductDetailOth
 import Summary from "@/components/Summary";
 import ProductData from "@/interfaces/product";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
+import { useRouter } from "next/router";
 
 export const getServerSideProps = (async (context) => {
   let slug = context.params?.slug;
@@ -20,9 +21,15 @@ export const getServerSideProps = (async (context) => {
 export default function ProductDetail({
   productDetail,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const router = useRouter();
   return (
     <div className="w-full max-w-[1110px] mx-auto flex flex-col gap-6 px-6 md:px-10 lg:px-0 mt-[106px] md:mt-[122px] lg:mt-[170px] mb-[120px]">
-      <button className="self-start">Go Back</button>
+      <button
+        className="self-start text-Black opacity-50 hover:text-Orange hover:opacity-100"
+        onClick={() => router.back()}
+      >
+        Go Back
+      </button>
 
       <section className="flex flex-col gap-[88px] ">
         <ProductDetailItem
