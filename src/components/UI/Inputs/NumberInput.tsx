@@ -1,6 +1,5 @@
 type NumberInputProps = {
   number: number;
-  className?: string;
   increment: (num: number) => void;
   decrement: (num: number) => void;
 };
@@ -8,11 +7,10 @@ export default function NumberInput({
   number,
   increment,
   decrement,
-  className,
 }: NumberInputProps) {
   return (
     <div
-      className={`w-full h-full bg-VeryDarkWhite flex gap-5 items-center justify-center ${className}`}
+      className={`w-full h-full bg-VeryDarkWhite flex gap-5 items-center justify-center`}
     >
       <button
         onClick={() => decrement(number - 1)}
