@@ -21,12 +21,13 @@ export default function CartItem({ title }: CartItemProps) {
             $ 2,999
           </p>
         </div>
-        <NumberInput
-          number={1}
-          increment={() => {}}
-          decrement={() => {}}
-          className="w-[96px] h-[40px] ml-auto"
-        ></NumberInput>
+        <div className="w-[96px] h-[32px] ml-auto">
+          <NumberInput
+            number={1}
+            increment={() => {}}
+            decrement={() => {}}
+          ></NumberInput>
+        </div>
       </div>
     </li>
   );
