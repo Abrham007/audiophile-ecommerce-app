@@ -17,7 +17,7 @@ export default function Navbar({ className }: NavBarProps) {
       <div className="relative w-full h-[217px] flex flex-col justify-end">
         <Link
           href="/headphones"
-          className="w-full h-[165px] pb-[22px] flex flex-col gap-[17px] justify-end items-center bg-VeryDarkWhite rounded-lg "
+          className="group w-full h-[165px] pb-[22px] flex flex-col gap-[17px] justify-end items-center bg-VeryDarkWhite rounded-lg "
         >
           <Image
             className="absolute top-0 left-[50% - 40px] w-[80px] h-auto"
@@ -27,7 +27,7 @@ export default function Navbar({ className }: NavBarProps) {
           <p className="text-base text-Black text-center uppercase tracking-[0.06694rem] leading-normal font-bold ">
             HEADPHONES
           </p>
-          <p className="flex gap-[13px] items-center justify-center bg-transparent text-xs leading-normal text-[#00000050] hover:text-Orange uppercase border-none outline-none">
+          <p className="flex gap-[13px] items-center justify-center bg-transparent text-xs leading-normal text-[#00000050] group-hover:text-Orange uppercase border-none outline-none">
             <span>Shop</span>
             <Image src={rightIcon} alt=""></Image>
           </p>
@@ -36,7 +36,7 @@ export default function Navbar({ className }: NavBarProps) {
       <div className="relative w-full h-[217px] flex flex-col justify-end">
         <Link
           href="/speakers"
-          className="w-full h-[165px] pb-[22px] flex flex-col gap-[17px] justify-end items-center bg-VeryDarkWhite rounded-lg "
+          className="group w-full h-[165px] pb-[22px] flex flex-col gap-[17px] justify-end items-center bg-VeryDarkWhite rounded-lg "
         >
           <Image
             className="absolute top-0 left-[50% - 42px] w-[80px] h-auto"
@@ -46,7 +46,7 @@ export default function Navbar({ className }: NavBarProps) {
           <p className="text-base text-Black text-center uppercase tracking-[0.06694rem] leading-normal font-bold ">
             SPEAKERS
           </p>
-          <p className="flex gap-[13px] items-center justify-center bg-transparent text-xs leading-normal text-[#00000050] hover:text-Orange uppercase border-none outline-none">
+          <p className="flex gap-[13px] items-center justify-center bg-transparent text-xs leading-normal text-[#00000050] group-hover:text-Orange uppercase border-none outline-none">
             <span>Shop</span>
             <Image src={rightIcon} alt=""></Image>
           </p>
@@ -55,7 +55,7 @@ export default function Navbar({ className }: NavBarProps) {
       <div className="relative w-full h-[217px] flex flex-col justify-end">
         <Link
           href="./earphones"
-          className="w-full h-[165px] pb-[22px] flex flex-col gap-[17px] justify-end items-center bg-VeryDarkWhite rounded-lg "
+          className="group w-full h-[165px] pb-[22px] flex flex-col gap-[17px] justify-end items-center bg-VeryDarkWhite rounded-lg "
         >
           <Image
             className="absolute top-0 left-[50% - 50px] w-[103px] h-auto"
@@ -65,7 +65,7 @@ export default function Navbar({ className }: NavBarProps) {
           <p className="text-base text-Black text-center uppercase tracking-[0.06694rem] leading-normal font-bold ">
             EARPHONES
           </p>
-          <p className="flex gap-[13px] items-center justify-center bg-transparent text-xs leading-normal text-[#00000050] hover:text-Orange uppercase border-none outline-none">
+          <p className="flex gap-[13px] items-center justify-center bg-transparent text-xs leading-normal text-[#00000050] group-hover:text-Orange uppercase border-none outline-none">
             <span>Shop</span>
             <Image src={rightIcon} alt=""></Image>
           </p>
