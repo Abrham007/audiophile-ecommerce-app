@@ -2,8 +2,11 @@ import { getImageProps } from "next/image";
 import Button from "../UI/Button/Button";
 import NumberInput from "../UI/Inputs/NumberInput";
 import { formatter } from "../../util/formatter.js";
+import { useContext } from "react";
+import CartContext from "@/store/CartContext";
 
 type ProductItemProsp = {
+  slug: string;
   title: string;
   description: string;
   imageSrc: {
@@ -16,6 +19,7 @@ type ProductItemProsp = {
 };
 
 export default function ProductDetailItem({
+  slug,
   title,
   description,
   imageSrc,
@@ -27,6 +31,7 @@ export default function ProductDetailItem({
     props: { srcSet: desktop },
   } = getImageProps({
     ...common,
+    priority: true,
     src: imageSrc.desktop,
     width: 1080,
     height: 1120,
@@ -35,6 +40,7 @@ export default function ProductDetailItem({
     props: { srcSet: tablet },
   } = getImageProps({
     ...common,
+    priority: true,
     src: imageSrc.tablet,
     width: 562,
     height: 960,
@@ -43,10 +49,24 @@ export default function ProductDetailItem({
     props: { srcSet: mobile, ...rest },
   } = getImageProps({
     ...common,
+    priority: true,
     src: imageSrc.mobile,
     width: 654,
     height: 654,
   });
+
+  const { addItem } = useContext(CartContext);
+
+  function handleAddCartItem() {
+    let cartItemObject = {
+      slug,
+      title,
+      price,
+    };
+
+    addItem(cartItemObject);
+  }
+
   return (
     <div className="flex flex-col md:flex-row gap-8 md:gap-[69.5px] lg:gap-[125px]">
       <picture>

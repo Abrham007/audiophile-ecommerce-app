@@ -28,8 +28,8 @@ export default function ProductDetailInfo({
           in the box
         </h2>
         <ul className="flex flex-col gap-2">
-          {includes.map((item) => (
-            <li className="flex gap-[21px]">
+          {includes.map((item, index) => (
+            <li key={index} className="flex gap-[21px]">
               <span className="text-base text-Orange font-bold ">
                 {item.quantity}x
               </span>

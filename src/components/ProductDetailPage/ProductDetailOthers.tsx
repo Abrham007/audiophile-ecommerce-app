@@ -22,6 +22,7 @@ export default function ProductDetailOthers({
       <ul className="w-full flex flex-col md:flex-row gap-14 md:gap-[11px] lg:gap-[30px] md:justify-between">
         {others.map((item) => (
           <OthersItem
+            key={item.slug}
             title={item.name}
             imageSrc={item.image}
             slug={item.slug}
