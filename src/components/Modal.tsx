@@ -16,14 +16,10 @@ export default function Modal({
   let dialog = useRef<HTMLDialogElement | null>(null);
 
   useEffect(() => {
-    if (dialog.current === null) {
-      return;
-    }
-
     if (isOpen) {
-      dialog.current.showModal();
+      dialog.current?.showModal();
     } else {
-      dialog.current.close();
+      dialog.current?.close();
     }
   }, []);
 
