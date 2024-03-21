@@ -18,17 +18,6 @@ export default function Checkout() {
           <CheckoutSummary></CheckoutSummary>
         </section>
       </div>
-
-      <Modal isOpen={false} setIsOpen={() => {}} className="rounded-lg">
-        <SuccessMessage></SuccessMessage>
-      </Modal>
-
-      <Modal isOpen={true} setIsOpen={() => {}} className="rounded-lg">
-        <Header></Header>
-        <div className="w-full max-w-[1110px] mx-auto fixed  top-0 left-0 right-0">
-          <Cart></Cart>
-        </div>
-      </Modal>
     </>
   );
 }
