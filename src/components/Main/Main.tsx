@@ -1,9 +1,9 @@
-import Modal from "./Modal";
-import SuccessMessage from "./SuccessMessage";
-import Cart from "./Cart/Cart";
+import Modal from "../Modal";
+import SuccessMessage from "../SuccessMessage";
+import Cart from "../Cart/Cart";
 import CartContext from "@/store/CartContext";
 import { useContext } from "react";
-import Header from "./Header/Header";
+import Header from "../Header/Header";
 
 type MainProps = {
   children: any;
