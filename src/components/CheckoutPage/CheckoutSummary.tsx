@@ -55,7 +55,9 @@ export default function CheckoutSummary() {
           </span>
         </p>
       </div>
-      <Button $type="1">CONTINUE & PAY</Button>
+      <Button $type="1" form="checkout-form">
+        CONTINUE & PAY
+      </Button>
     </div>
   );
 }
