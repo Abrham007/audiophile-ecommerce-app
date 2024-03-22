@@ -15,12 +15,6 @@ export default function Main({ children }: MainProps) {
     <>
       <main>{children}</main>
 
-      {false && (
-        <Modal isOpen={false} setIsOpen={() => {}} className="rounded-lg">
-          <SuccessMessage></SuccessMessage>
-        </Modal>
-      )}
-
       {isCartOpen && (
         <Modal
           isOpen={isCartOpen}
