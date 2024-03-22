@@ -18,7 +18,11 @@ type Inputs = {
   eMoneyPin: string;
 };
 
-export default function CheckoutForm() {
+type CheckoutFormProps = {
+  openSuccess: () => void;
+};
+
+export default function CheckoutForm({ openSuccess }: CheckoutFormProps) {
   const {
     register,
     handleSubmit,
@@ -28,6 +32,7 @@ export default function CheckoutForm() {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data);
+    openSuccess();
   };
 
   let paymentMethodDispaly = (
