@@ -12,11 +12,8 @@ type ItemObject = {
 };
 
 export default function Cart() {
-  const { cartItems } = useContext(CartContext);
-  const total: number = cartItems.reduce(
-    (x: number, y: ItemObject) => x + y.quantity,
-    0
-  );
+  const { cartItems, addItem, removeItem, total } = useContext(CartContext);
+
   return (
     <div className="w-[327px] md:w-[377px] md:absolute md:top-[114px] md:right-10 lg:right-0 px-[28px] py-6 md:p-8 flex flex-col gap-8 bg-White rounded-lg">
       <div className="flex justify-between">
@@ -30,7 +27,13 @@ export default function Cart() {
 
       <ul className="flex flex-col gap-6">
         {cartItems.map((item: ItemObject) => (
-          <CartItem key={item.slug} {...item}></CartItem>
+          <CartItem
+            key={item.slug}
+            {...item}
+            quantity={item.quantity}
+            addItem={addItem}
+            removeItem={removeItem}
+          ></CartItem>
         ))}
       </ul>
 
