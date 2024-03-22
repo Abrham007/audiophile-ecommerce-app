@@ -5,6 +5,7 @@ import Image from "next/image";
 import LinkList from "../UI/Link/LinkList";
 import { useContext } from "react";
 import CartContext from "@/store/CartContext";
+import CartIcon from "../UI/Icons/CartIcon";
 
 export default function Header() {
   const { isCartOpen, openCartHandler, closeCartHandler } =
@@ -32,7 +33,7 @@ export default function Header() {
           <LinkList className="flex gap-[34px]"></LinkList>
         </nav>
         <button className="md:ml-auto" onClick={toggleCart}>
-          <Image src={cartIcon} alt="cart icon"></Image>
+          <CartIcon></CartIcon>
         </button>
       </div>
     </header>
