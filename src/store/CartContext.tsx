@@ -14,6 +14,7 @@ const CartContext = createContext({
   cartItems: [],
   addItem: (cartItem: CartItemObject) => {},
   removeItem: (cartItem: CartItemObject) => {},
+  removeAllItems: () => {},
   total: 0,
 });
 
@@ -85,6 +86,11 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     });
   }
 
+  function removeAllItems() {
+    setCartItems([]);
+    setTotal(0);
+  }
+
   const cxtValue = {
     isCartOpen,
     openCartHandler,
@@ -92,6 +98,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     cartItems,
     addItem,
     removeItem,
+    removeAllItems,
     total,
   };
 

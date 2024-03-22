@@ -1,7 +1,6 @@
 import Image from "next/image";
 import NumberInput from "../UI/Inputs/NumberInput";
 import { formatter } from "@/util/formatter";
-import { useState } from "react";
 
 type CartItemProps = {
   title: string;
@@ -20,15 +19,11 @@ export default function CartItem({
   addItem,
   removeItem,
 }: CartItemProps) {
-  const [currentQuantity, setCurrentQuantity] = useState(quantity);
-
   function handleIncrement() {
-    setCurrentQuantity((prevValue) => (prevValue += 1));
     addItem({ slug, title, price, quantity: 1 });
   }
 
   function handleDecrement() {
-    setCurrentQuantity((prevValue) => (prevValue -= 1));
     removeItem({ slug, title, price, quantity: 1 });
   }
 
@@ -50,7 +45,7 @@ export default function CartItem({
         </div>
         <div className="w-[96px] h-[32px] ml-auto shrink-0">
           <NumberInput
-            number={currentQuantity}
+            number={quantity}
             increment={handleIncrement}
             decrement={handleDecrement}
           ></NumberInput>
