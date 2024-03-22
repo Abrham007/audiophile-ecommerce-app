@@ -1,7 +1,7 @@
 type NumberInputProps = {
   number: number;
-  increment: (num: number) => void;
-  decrement: (num: number) => void;
+  increment: () => void;
+  decrement: () => void;
 };
 export default function NumberInput({
   number,
@@ -13,8 +13,8 @@ export default function NumberInput({
       className={`w-full h-full bg-VeryDarkWhite flex gap-5 items-center justify-center`}
     >
       <button
-        onClick={() => decrement(number - 1)}
-        className="text-xs text-[#00000025] hover:text-Orange leading-normal tracking-[0.0625rem]"
+        onClick={() => decrement()}
+        className="w-full h-full text-xs text-[#00000025] hover:text-Orange leading-normal tracking-[0.0625rem]"
       >
         -
       </button>
@@ -22,8 +22,8 @@ export default function NumberInput({
         {number}
       </span>
       <button
-        onClick={() => increment(number + 1)}
-        className="text-xs text-[#00000025] hover:text-Orange leading-normal tracking-[0.0625rem]"
+        onClick={() => increment()}
+        className="w-full h-full text-xs text-[#00000025] hover:text-Orange leading-normal tracking-[0.0625rem]"
       >
         +
       </button>
