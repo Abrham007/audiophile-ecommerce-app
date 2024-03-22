@@ -1,10 +1,33 @@
 import Image from "next/image";
 import Button from "./UI/Button/Button";
 import checkLogo from "../../public/checkout/icon-order-confirmation.svg";
-import ImageHeadphone from "../../public/cart/image-xx99-mark-two-headphones.jpg";
 import ProductSummary from "./ProductSummary";
+import { useContext, useState } from "react";
+import CartContext from "@/store/CartContext";
+import { formatter } from "@/util/formatter";
+import Link from "next/link";
+
+type ItemObject = {
+  slug: string;
+  title: string;
+  price: number;
+  quantity: number;
+};
+
+type contextOutput = {
+  cartItems: any;
+  total: number;
+  removeAllItems: () => void;
+};
 
 export default function SuccessMessage() {
+  const { cartItems, total, removeAllItems }: contextOutput =
+    useContext(CartContext);
+  const [showAll, setShowAll] = useState(false);
+
+  function toggleShowAll() {
+    setShowAll((prevValue) => !prevValue);
+  }
   return (
     <div className="md:w-[540px] flex flex-col gap-6 md:gap-8 p-8 md:p-12 bg-White rounded-lg">
       <Image
@@ -24,19 +47,34 @@ export default function SuccessMessage() {
       <div className="flex flex-col md:flex-row md:mb-4">
         <div className="md:w-[246px] md:grow-1 p-6 bg-VeryDarkWhite rounded-t-lg md:rounded-none md:rounded-l-lg">
           <ul className="flex flex-col gap-4">
-            <ProductSummary title="XX99 MK II"></ProductSummary>
+            {showAll ? (
+              cartItems.map((item: ItemObject) => (
+                <ProductSummary key={item.slug} {...item}></ProductSummary>
+              ))
+            ) : (
+              <ProductSummary {...cartItems[0]}></ProductSummary>
+            )}
           </ul>
 
-          <button className=" w-full pt-[12px] border-t-2 border-t-solid border-t-[#00000008] text-center text-[0.75rem] text-Black  -tracking-[0.01338rem] font-bold opacity-50">
-            and 2 other item(s)
-          </button>
+          {cartItems.length > 1 && (
+            <button
+              onClick={toggleShowAll}
+              className=" w-full pt-[12px] border-t-2 border-t-solid border-t-[#00000008] text-center text-[0.75rem] text-Black  -tracking-[0.01338rem] font-bold opacity-50"
+            >
+              and {cartItems.length - 1} other item(s)
+            </button>
+          )}
         </div>
         <div className="md:w-[198px] flex flex-col md:justify-end gap-2 px-6 pt-[15px] pb-[19px] md:py-10 bg-Black rounded-b-lg md:rounded-none md:rounded-r-lg">
           <h3 className="text-base text-White opacity-50">GRAND TOTAL</h3>
-          <p className="text-lg text-White">$ 5,446</p>
+          <p className="text-lg text-White">{formatter.format(total + 50)}</p>
         </div>
       </div>
-      <Button $type="1">BACK TO HOME</Button>
+      <Link href="/">
+        <Button $type="1" className="w-full" onClick={removeAllItems}>
+          BACK TO HOME
+        </Button>
+      </Link>
     </div>
   );
 }
