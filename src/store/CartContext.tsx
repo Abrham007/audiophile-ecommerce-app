@@ -14,6 +14,7 @@ const CartContext = createContext({
   cartItems: [],
   addItem: (cartItem: CartItemObject) => {},
   removeItem: (cartItem: CartItemObject) => {},
+  total: 0,
 });
 
 type CartContextProviderProps = {
@@ -23,6 +24,7 @@ type CartContextProviderProps = {
 export function CartContextProvider({ children }: CartContextProviderProps) {
   const [isCartOpen, setIsOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const [total, setTotal] = useState(0);
 
   function openCartHandler() {
     setIsOpen(true);
@@ -35,15 +37,22 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   function addItem(cartItem: CartItemObject) {
     setCartItems((prevValue: any) => {
       const tempList = prevValue;
-      const slugIndex = tempList.find(
+      const slugIndex = tempList.findIndex(
         (item: CartItemObject) => item.slug === cartItem.slug
       );
 
       if (slugIndex > -1) {
-        tempList[slugIndex].quantity += 1;
+        tempList[slugIndex].quantity += cartItem.quantity;
       } else {
         tempList.push(cartItem);
       }
+
+      const total: number = tempList.reduce(
+        (x: number, y: CartItemObject) => x + y.price * y.quantity,
+        0
+      );
+
+      setTotal(total);
 
       return tempList;
     });
@@ -52,7 +61,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   function removeItem(cartItem: CartItemObject) {
     setCartItems((prevValue: any) => {
       let tempList = prevValue;
-      const slugIndex = tempList.find(
+      const slugIndex = tempList.findIndex(
         (item: CartItemObject) => item.slug === cartItem.slug
       );
 
@@ -65,6 +74,13 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         tempList[slugIndex].quantity -= 1;
       }
 
+      const total: number = tempList.reduce(
+        (x: number, y: CartItemObject) => x + y.price * y.quantity,
+        0
+      );
+
+      setTotal(total);
+
       return tempList;
     });
   }
@@ -76,6 +92,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     cartItems,
     addItem,
     removeItem,
+    total,
   };
 
   return (
