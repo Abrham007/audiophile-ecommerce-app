@@ -2,7 +2,7 @@ import { getImageProps } from "next/image";
 import Button from "../UI/Button/Button";
 import NumberInput from "../UI/Inputs/NumberInput";
 import { formatter } from "../../util/formatter.js";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CartContext from "@/store/CartContext";
 
 type ProductItemProsp = {
@@ -56,15 +56,32 @@ export default function ProductDetailItem({
   });
 
   const { addItem } = useContext(CartContext);
+  const [quantity, setQuantity] = useState(1);
 
   function handleAddCartItem() {
     let cartItemObject = {
       slug,
       title,
       price,
+      quantity,
     };
 
     addItem(cartItemObject);
+    setQuantity(1);
+  }
+
+  function handleIncrement() {
+    setQuantity((prevValue) => (prevValue += 1));
+  }
+
+  function handleDecrement() {
+    setQuantity((prevValue) => {
+      if (prevValue === 1) {
+        return 1;
+      } else {
+        return (prevValue -= 1);
+      }
+    });
   }
 
   return (
@@ -92,13 +109,15 @@ export default function ProductDetailItem({
         <div className="flex gap-4 items-center mt-2 md:mt-0 lg:mt-4">
           <div className="w-[120px] h-[48px]">
             <NumberInput
-              number={1}
-              decrement={() => {}}
-              increment={() => {}}
+              number={quantity}
+              decrement={handleDecrement}
+              increment={handleIncrement}
             ></NumberInput>
           </div>
 
-          <Button $type="1">ADD TO CART</Button>
+          <Button $type="1" onClick={handleAddCartItem}>
+            ADD TO CART
+          </Button>
         </div>
       </div>
     </div>
