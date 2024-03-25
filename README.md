@@ -37,7 +37,7 @@ Audiophile E-Commerce is a classic E-Commerce App that allow it's users to buy v
 ### Links
 
 - Project Repo URL: [https://github.com/Abrham007/audiophile-ecommerce-app.git](https://github.com/Abrham007/audiophile-ecommerce-app.git)
-- Live Site URL: [https://kanban-task-management-app-d2fe74b1db54.herokuapp.com/](https://kanban-task-management-app-d2fe74b1db54.herokuapp.com/)
+- Live Site URL: [ https://audiophile-ecommerce-app-8e126b90fbd6.herokuapp.com/](https://audiophile-ecommerce-app-8e126b90fbd6.herokuapp.com/)
 
 ### Author
 
