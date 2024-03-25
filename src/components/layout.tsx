@@ -12,7 +12,7 @@ export default function Layout({ children }: any) {
         <link rel="icon" href="/favicon.ico"></link>
         <title>Audiophile E-Commerce App</title>
         <meta
-          name="decription"
+          name="description"
           content="This one of the project's of Abrham Araya made by Next, React and TypeScript hosted at Heroku"
         />
       </Head>
