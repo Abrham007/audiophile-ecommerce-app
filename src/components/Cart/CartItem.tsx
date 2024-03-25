@@ -38,7 +38,9 @@ export default function CartItem({
       ></Image>
       <div className="w-full flex items-center justify-between">
         <div>
-          <h3 className="text-base text-Black font-bold">{title}</h3>
+          <h3 className="text-base text-Black font-bold">
+            {title.split(" ").slice(0, -1).join(" ")}
+          </h3>
           <p className="text-sm text-Black leading-[1.5625rem] tracking-normal font-bold opacity-50">
             {formatter.format(price)}
           </p>
