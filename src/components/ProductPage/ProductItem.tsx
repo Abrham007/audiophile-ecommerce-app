@@ -2,6 +2,7 @@ import { getImageProps } from "next/image";
 import Link from "next/link";
 
 type ProductItemProsp = {
+  order: number;
   title: string;
   description: string;
   imageSrc: {
@@ -15,6 +16,7 @@ type ProductItemProsp = {
 };
 
 export default function ProductItem({
+  order,
   title,
   description,
   imageSrc,
@@ -27,6 +29,7 @@ export default function ProductItem({
     props: { srcSet: desktop },
   } = getImageProps({
     ...common,
+    priority: order === 0,
     src: imageSrc.desktop,
     width: 700,
     height: 636,
@@ -35,6 +38,7 @@ export default function ProductItem({
     props: { srcSet: tablet },
   } = getImageProps({
     ...common,
+    priority: order === 0,
     src: imageSrc.tablet,
     width: 446,
     height: 636,
@@ -43,6 +47,7 @@ export default function ProductItem({
     props: { srcSet: mobile, ...rest },
   } = getImageProps({
     ...common,
+    priority: order === 0,
     src: imageSrc.mobile,
     width: 654,
     height: 240,
