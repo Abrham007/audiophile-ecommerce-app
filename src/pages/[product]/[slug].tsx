@@ -33,7 +33,6 @@ export default function ProductDetail({
 
       <section className="flex flex-col gap-[88px] ">
         <ProductDetailItem
-          key={productDetail.slug}
           slug={productDetail.slug}
           title={productDetail.name}
           description={productDetail.description}
