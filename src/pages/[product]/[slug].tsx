@@ -7,16 +7,16 @@ import Summary from "@/components/Summary";
 import ProductData from "@/interfaces/product";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 import { useRouter } from "next/router";
+import data from "../../data.json";
 
 export const getServerSideProps = (async (context) => {
+  const Products = data as ProductData[];
   let slug = context.params?.slug;
-  const res = await fetch(`http://localhost:3000/api/detail/${slug}`);
-  const resData = await res.json();
 
-  const productDetail: ProductData = resData.product;
+  let productDetail: any = Products.find((product) => product.slug === slug);
 
   return { props: { productDetail } };
-}) satisfies GetServerSideProps<{ productDetail: ProductData }>;
+}) satisfies GetServerSideProps<{ productDetail: any }>;
 
 export default function ProductDetail({
   productDetail,

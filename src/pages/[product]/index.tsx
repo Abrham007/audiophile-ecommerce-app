@@ -4,14 +4,18 @@ import ProductList from "@/components/ProductPage/ProductList";
 import Summary from "@/components/Summary";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 import ProductData from "@/interfaces/product";
+import data from "../../data.json";
 
 export const getServerSideProps = (async (context) => {
+  const Products = data as ProductData[];
+
   let productName = context.params?.product;
-  const res = await fetch(`http://localhost:3000/api/product/${productName}`);
 
-  const productList = await res.json();
+  const productList: ProductData[] = Products.filter(
+    (product) => product.category === productName
+  );
 
-  let currentProductList = productList?.products?.reverse() || [];
+  let currentProductList = productList?.reverse() || [];
   let title = currentProductList[0]?.category || "";
 
   return { props: { currentProductList, title } };
