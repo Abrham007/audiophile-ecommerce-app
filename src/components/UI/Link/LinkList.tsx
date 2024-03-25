@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type LinkListProps = {
   className: string;
 };
@@ -5,36 +7,36 @@ export default function LinkList({ className }: LinkListProps) {
   return (
     <ul className={className}>
       <li>
-        <a
+        <Link
           href="/"
           className="text-xs text-White hover:text-Orange tracking-[0.125rem] uppercase"
         >
           Home
-        </a>
+        </Link>
       </li>
       <li>
-        <a
+        <Link
           href="/headphones"
           className="text-xs text-White hover:text-Orange tracking-[0.125rem] uppercase"
         >
           HEADPHONES
-        </a>
+        </Link>
       </li>
       <li>
-        <a
+        <Link
           href="/speakers"
           className="text-xs text-White hover:text-Orange tracking-[0.125rem] uppercase"
         >
           SPEAKERS
-        </a>
+        </Link>
       </li>
       <li>
-        <a
+        <Link
           href="/earphones"
           className="text-xs text-White hover:text-Orange tracking-[0.125rem] uppercase"
         >
           EARPHONES
-        </a>
+        </Link>
       </li>
     </ul>
   );
