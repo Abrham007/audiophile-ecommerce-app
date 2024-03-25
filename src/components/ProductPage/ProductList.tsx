@@ -7,9 +7,10 @@ type ProductListProps = {
 export default function ProductList({ list }: ProductListProps) {
   return (
     <ul className="w-full max-w-[1110px] mx-auto flex flex-col gap-[120px] lg:gap-[160px]">
-      {list.map((item) => (
+      {list.map((item, index) => (
         <ProductItem
           key={item.id}
+          order={index}
           title={item.name}
           description={item.description}
           isNew={item.new}
