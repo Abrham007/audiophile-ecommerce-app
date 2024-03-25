@@ -1,54 +1,29 @@
 import Navbar from "@/components/Navbar/Navbar";
 import ProductHeader from "@/components/ProductPage/ProductHeader";
 import ProductList from "@/components/ProductPage/ProductList";
-
 import Summary from "@/components/Summary";
-import type {
-  InferGetStaticPropsType,
-  GetStaticProps,
-  GetStaticPaths,
-} from "next";
+import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 import ProductData from "@/interfaces/product";
 
-export const getStaticPaths = (async () => {
-  return {
-    paths: [
-      {
-        params: {
-          product: "headphones",
-        },
-      },
-      {
-        params: {
-          product: "earphones",
-        },
-      },
-      {
-        params: {
-          product: "speakers",
-        },
-      },
-    ],
-    fallback: true,
-  };
-}) satisfies GetStaticPaths;
-
-export const getStaticProps = (async (context) => {
+export const getServerSideProps = (async (context) => {
   let productName = context.params?.product;
   const res = await fetch(`http://localhost:3000/api/product/${productName}`);
+
   const productList = await res.json();
 
-  return { props: { currentProduct: productList } };
-}) satisfies GetStaticProps<{
-  currentProduct: ProductData[];
+  let currentProductList = productList?.products?.reverse() || [];
+  let title = currentProductList[0]?.category || "";
+
+  return { props: { currentProductList, title } };
+}) satisfies GetServerSideProps<{
+  currentProductList: any[];
+  title: string;
 }>;
 
 export default function Product({
-  currentProduct,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
-  let currentProductList = currentProduct?.products || [];
-  let title = currentProductList[0]?.category || "";
-
+  currentProductList,
+  title,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <div className="flex flex-col">
       <ProductHeader title={title}></ProductHeader>
