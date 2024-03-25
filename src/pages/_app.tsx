@@ -1,11 +1,13 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Layout from "@/components/Layout";
+import { useRouter } from "next/router";
 import { Manrope } from "next/font/google";
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
   return (
     <>
       <style jsx global>{`
@@ -14,7 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
         }
       `}</style>
       <Layout>
-        <Component {...pageProps} />
+        <Component key={router.asPath} {...pageProps} />
       </Layout>
     </>
   );
