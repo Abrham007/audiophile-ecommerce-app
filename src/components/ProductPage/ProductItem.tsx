@@ -1,5 +1,4 @@
 import { getImageProps } from "next/image";
-import Button from "../UI/Button/Button";
 import Link from "next/link";
 
 type ProductItemProsp = {
@@ -67,8 +66,11 @@ export default function ProductItem({
         <p className="text-base text-Black opacity-50 md:mt-2 lg:mb-4">
           {description}
         </p>
-        <Link href={`/${category}/${slug}`}>
-          <Button $type="1">See Product</Button>
+        <Link
+          href={`/${category}/${slug}`}
+          className={`px-[30px] py-[15px] bg-Orange hover:bg-LightOrange text-xs text-White font-bold border-none outline-none uppercase`}
+        >
+          See Product
         </Link>
       </div>
     </li>

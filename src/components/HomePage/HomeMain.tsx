@@ -80,15 +80,21 @@ export default function HomeMain() {
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </p>
-          <Link href="/speakers/zx9-speaker">
-            <Button $type="3">See Product</Button>
+          <Link
+            href="/speakers/zx9-speaker"
+            className={`px-[30px] py-[15px] bg-Black hover:bg-LightBlack text-xs text-White hover:text-Black font-bold border-[1px] border-solid border-Black outline-none uppercase`}
+          >
+            See Product
           </Link>
         </div>
       </div>
       <div className="w-full max-w-[1110px] mx-auto h-[320px] px-6 md:px-[64] flex flex-col gap-8 justify-center items-start rounded-lg bg-[url('../../public/home/mobile/image-speaker-zx7.jpg')] md:bg-[url('../../public/home/tablet/image-speaker-zx7.jpg')] lg:bg-[url('../../public/home/desktop/image-speaker-zx7.jpg')] bg-center bg-cover bg-no-repeat">
         <h2 className="text-xl2 text-Black uppercase">ZX7 SPEAKER</h2>
-        <Link href="/speakers/zx7-speaker">
-          <Button $type="2">See Product</Button>
+        <Link
+          href="/speakers/zx7-speaker"
+          className={`px-[30px] py-[15px] bg-transparent hover:bg-Black text-xs text-Black hover:text-White font-bold border-[1px] border-solid border-Black outline-none uppercase`}
+        >
+          See Product
         </Link>
       </div>
       <div className="w-full max-w-[1110px] mx-auto flex flex-col md:flex-row gap-6 md:gap-[11px] lg:gap-[30px]">
@@ -103,8 +109,11 @@ export default function HomeMain() {
         </picture>
         <div className="w-full max-w-[540px] h-[200px] md:h-[320px] px-6 md:px-10 lg:px-[96px] flex flex-col gap-8 justify-center items-start bg-VeryDarkWhite rounded-lg">
           <h2 className="text-xl2 text-Black uppercase">YX1 EARPHONES</h2>
-          <Link href="/earphones/yx1-earphones">
-            <Button $type="2">See Product</Button>
+          <Link
+            href="/earphones/yx1-earphones"
+            className={`px-[30px] py-[15px] bg-transparent hover:bg-Black text-xs text-Black hover:text-White font-bold border-[1px] border-solid border-Black outline-none uppercase`}
+          >
+            See Product
           </Link>
         </div>
       </div>

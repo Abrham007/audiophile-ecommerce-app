@@ -16,8 +16,11 @@ export default function HomeHeader() {
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </p>
-        <Link href="/headphones/xx99-mark-two-headphones">
-          <Button $type="1">See Product</Button>
+        <Link
+          href="/headphones/xx99-mark-two-headphones"
+          className={`px-[30px] py-[15px] bg-Orange hover:bg-LightOrange text-xs text-White font-bold border-none outline-none uppercase`}
+        >
+          See Product
         </Link>
       </div>
     </header>
