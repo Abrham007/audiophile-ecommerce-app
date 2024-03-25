@@ -32,7 +32,11 @@ export default function Header() {
         <nav className="hidden lg:flex">
           <LinkList className="flex gap-[34px]"></LinkList>
         </nav>
-        <button className="md:ml-auto" onClick={toggleCart}>
+        <button
+          className="md:ml-auto"
+          onClick={toggleCart}
+          aria-label="cart icon"
+        >
           <CartIcon></CartIcon>
         </button>
       </div>
