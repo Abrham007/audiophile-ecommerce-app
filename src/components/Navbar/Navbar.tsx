@@ -54,7 +54,7 @@ export default function Navbar({ className }: NavBarProps) {
       </div>
       <div className="relative w-full h-[217px] flex flex-col justify-end">
         <Link
-          href="./earphones"
+          href="/earphones"
           className="group w-full h-[165px] pb-[22px] flex flex-col gap-[17px] justify-end items-center bg-VeryDarkWhite rounded-lg "
         >
           <Image
