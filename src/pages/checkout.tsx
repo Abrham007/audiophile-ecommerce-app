@@ -4,6 +4,12 @@ import { useRouter } from "next/router";
 import Modal from "../components/Modal";
 import SuccessMessage from "../components/SuccessMessage";
 import { useState } from "react";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+);
 
 export default function Checkout() {
   const router = useRouter();
@@ -29,8 +35,10 @@ export default function Checkout() {
         </div>
 
         <section className="w-full max-w-[1110px] mx-auto flex flex-col lg:flex-row gap-8 lg:gap-[30px] lg:items-start">
-          <CheckoutForm openSuccess={handleOpenSuccessMessage}></CheckoutForm>
-          <CheckoutSummary></CheckoutSummary>
+          <Elements stripe={stripePromise}>
+            <CheckoutForm openSuccess={handleOpenSuccessMessage}></CheckoutForm>
+            <CheckoutSummary></CheckoutSummary>
+          </Elements>
         </section>
 
         {isFinished && (

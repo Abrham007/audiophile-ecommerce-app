@@ -2,8 +2,11 @@ import Image from "next/image";
 import RadioInput from "../UI/Inputs/RadioInput";
 import TextInput from "../UI/Inputs/TextInput";
 import CashIcon from "../../../public/checkout/icon-cash-on-delivery.svg";
-
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useContext } from "react";
+import CartContext from "@/store/CartContext";
+import { useElements, useStripe } from "@stripe/react-stripe-js";
+import CardForm from "./CardForm";
 
 type Inputs = {
   name: string;
@@ -16,6 +19,8 @@ type Inputs = {
   paymentMethod: string;
   eMoneyNumber: string;
   eMoneyPin: string;
+  total: number;
+  productItems: any[];
 };
 
 type CheckoutFormProps = {
@@ -23,6 +28,7 @@ type CheckoutFormProps = {
 };
 
 export default function CheckoutForm({ openSuccess }: CheckoutFormProps) {
+  const { cartItems, total } = useContext(CartContext);
   const {
     register,
     handleSubmit,
@@ -30,33 +36,43 @@ export default function CheckoutForm({ openSuccess }: CheckoutFormProps) {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
-    openSuccess();
+  const stripe = useStripe();
+  const elements = useElements();
+
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const cardNumberElement = elements?.getElement("cardNumber");
+    const cardExpiryElement = elements?.getElement("cardExpiry");
+    const cardCvcElement = elements?.getElement("cardCvc");
+    try {
+      if (
+        !stripe ||
+        !cardNumberElement ||
+        !cardExpiryElement ||
+        !cardCvcElement
+      )
+        return null;
+      if (watch("paymentMethod") === "card") {
+        const response = await fetch("/api/create-payment-intent", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ data: { total: total } }),
+        });
+
+        const clientSecret = await response.json();
+
+        await stripe?.confirmCardPayment(clientSecret, {
+          payment_method: { card: cardNumberElement },
+        });
+      }
+      openSuccess();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  let paymentMethodDispaly = (
-    <div className="flex flex-col md:flex-row gap-6 md:gap-4">
-      <div className="flex-1">
-        <TextInput
-          name="eMoneyNumber"
-          register={register}
-          errors={errors}
-          label="e-Money Number"
-          placeholder="238521993"
-        ></TextInput>
-      </div>
-      <div className="flex-1">
-        <TextInput
-          name="eMoneyPin"
-          register={register}
-          errors={errors}
-          label="e-Money PIN"
-          placeholder="6891"
-        ></TextInput>
-      </div>
-    </div>
-  );
+  let paymentMethodDispaly = <CardForm></CardForm>;
 
   if (watch("paymentMethod") === "cash-on-delivery") {
     paymentMethodDispaly = (
@@ -170,8 +186,8 @@ export default function CheckoutForm({ openSuccess }: CheckoutFormProps) {
               <RadioInput
                 name="paymentMethod"
                 register={register}
-                value="e-Money"
-                label="e-Money"
+                value="card"
+                label="Card"
                 checked={true}
               ></RadioInput>
               <RadioInput
