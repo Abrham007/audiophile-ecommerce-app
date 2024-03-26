@@ -6,6 +6,7 @@ import LinkList from "../UI/Link/LinkList";
 import { useContext } from "react";
 import CartContext from "@/store/CartContext";
 import CartIcon from "../UI/Icons/CartIcon";
+import Link from "next/link";
 
 export default function Header() {
   const { isCartOpen, openCartHandler, closeCartHandler } =
@@ -23,11 +24,13 @@ export default function Header() {
       <div className="w-full max-w-[1110px] h-[90px] px-6 md:px-0 lg:px-0 lg:py-9 lg:mx-auto  flex md:gap-[42px] lg:gap-[197px] justify-between items-center border-b-[1px] border-b-solid border-b-[#FFFFFF50]">
         <HeaderNav></HeaderNav>
 
-        <Image
-          src={logoIcon}
-          alt="audiophile"
-          className="text-xl2 tracking-tight text-White"
-        ></Image>
+        <Link href="/">
+          <Image
+            src={logoIcon}
+            alt="audiophile"
+            className="text-xl2 tracking-tight text-White"
+          ></Image>
+        </Link>
 
         <nav className="hidden lg:flex">
           <LinkList className="flex gap-[34px]"></LinkList>
