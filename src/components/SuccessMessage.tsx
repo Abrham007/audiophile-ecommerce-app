@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import CartContext from "@/store/CartContext";
 import { formatter } from "@/util/formatter";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 type ItemObject = {
   slug: string;
@@ -21,12 +22,18 @@ type contextOutput = {
 };
 
 export default function SuccessMessage() {
+  const router = useRouter();
   const { cartItems, total, removeAllItems }: contextOutput =
     useContext(CartContext);
   const [showAll, setShowAll] = useState(false);
 
   function toggleShowAll() {
     setShowAll((prevValue) => !prevValue);
+  }
+
+  function handleFinish() {
+    router.push("/");
+    removeAllItems();
   }
   return (
     <div className="md:w-[540px] flex flex-col gap-6 md:gap-8 p-8 md:p-12 bg-White rounded-lg">
@@ -46,15 +53,17 @@ export default function SuccessMessage() {
 
       <div className="flex flex-col md:flex-row md:mb-4">
         <div className="md:w-[246px] md:grow-1 p-6 bg-VeryDarkWhite rounded-t-lg md:rounded-none md:rounded-l-lg">
-          <ul className="flex flex-col gap-4">
-            {showAll ? (
-              cartItems.map((item: ItemObject) => (
-                <ProductSummary key={item.slug} {...item}></ProductSummary>
-              ))
-            ) : (
-              <ProductSummary {...cartItems[0]}></ProductSummary>
-            )}
-          </ul>
+          {cartItems.lenght > 0 && (
+            <ul className="flex flex-col gap-4">
+              {showAll ? (
+                cartItems.map((item: ItemObject) => (
+                  <ProductSummary key={item.slug} {...item}></ProductSummary>
+                ))
+              ) : (
+                <ProductSummary {...cartItems[0]}></ProductSummary>
+              )}
+            </ul>
+          )}
 
           {cartItems.length > 1 && (
             <button
@@ -70,11 +79,10 @@ export default function SuccessMessage() {
           <p className="text-lg text-White">{formatter.format(total + 50)}</p>
         </div>
       </div>
-      <Link href="/">
-        <Button $type="1" className="w-full" onClick={removeAllItems}>
-          BACK TO HOME
-        </Button>
-      </Link>
+
+      <Button $type="1" className="w-full" onClick={handleFinish}>
+        BACK TO HOME
+      </Button>
     </div>
   );
 }
