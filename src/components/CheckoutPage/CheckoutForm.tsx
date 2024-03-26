@@ -44,14 +44,14 @@ export default function CheckoutForm({ openSuccess }: CheckoutFormProps) {
     const cardExpiryElement = elements?.getElement("cardExpiry");
     const cardCvcElement = elements?.getElement("cardCvc");
     try {
-      if (
-        !stripe ||
-        !cardNumberElement ||
-        !cardExpiryElement ||
-        !cardCvcElement
-      )
-        return null;
       if (watch("paymentMethod") === "card") {
+        if (
+          !stripe ||
+          !cardNumberElement ||
+          !cardExpiryElement ||
+          !cardCvcElement
+        )
+          return null;
         const response = await fetch("/api/create-payment-intent", {
           method: "POST",
           headers: {
