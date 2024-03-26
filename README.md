@@ -13,7 +13,7 @@
 
 ### About Project
 
-Audiophile E-Commerce is a classic E-Commerce App that allow it's users to buy various products like headphones, speakers and earphones.Your allowed to pay either with e-money or cash on delivery.It has responsive design for desktop, tablet and mobile screens. I used React, Next and Typescript with Tailwind for styles and mobile first workflow for the front-end. It is fully online on a Heroku server.
+Audiophile E-Commerce is a classic E-Commerce App that allow's it's users to buy various products like headphones, speakers and earphones. It has a fully operational Stipe based payment getway.Your allowed to pay either with CreditCard/DebitCard or cash on delivery.It has responsive design for desktop, tablet and mobile screens. I used React, Next and Typescript with Tailwind for styles and mobile first workflow for the front-end. It is fully online on a Heroku server.
 
 ### Built with
 
