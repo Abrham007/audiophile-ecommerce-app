@@ -53,7 +53,7 @@ export default function SuccessMessage() {
 
       <div className="flex flex-col md:flex-row md:mb-4">
         <div className="md:w-[246px] md:grow-1 p-6 bg-VeryDarkWhite rounded-t-lg md:rounded-none md:rounded-l-lg">
-          {cartItems.lenght > 0 && (
+          {cartItems.length > 0 && (
             <ul className="flex flex-col gap-4">
               {showAll ? (
                 cartItems.map((item: ItemObject) => (
