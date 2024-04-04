@@ -13,7 +13,7 @@ export default function Layout({ children }: any) {
         <title>Audiophile E-Commerce App</title>
         <meta
           name="description"
-          content="This one of the project's of Abrham Araya made by Next, React and TypeScript hosted at Heroku"
+          content="Abrham Araya portifolio project's made with Next, React and TypeScript hosted at Heroku"
         />
       </Head>
       <CartContextProvider>
