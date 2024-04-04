@@ -18,10 +18,8 @@ export default function Modal({
   useEffect(() => {
     if (isOpen) {
       dialog.current?.showModal();
-      document.documentElement.style.overflow = "hidden";
     } else {
       dialog.current?.close();
-      document.documentElement.style.overflow = "";
     }
   }, []);
 
